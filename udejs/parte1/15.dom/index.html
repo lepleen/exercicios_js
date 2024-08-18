@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <script>
+        function distribuiChar(){
+            // selecionar o valor digitado
+            var caract = document.getElementById('entrada').value;
+            document.getElementById('entrada').value = '';
+            console.log(caract);
+            //limpar espacos em branco nas extremidades da string
+            caract.trim()
+
+            switch(caract){
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                //adicionar o caracter no campo referente a numeros
+                    document.getElementById('onnumeros').value += caract;
+                break;
+                default:
+                    //adicionar o caracter no campo referente a letra
+                    document.getElementById('onletras').value += caract;
+            }
+        }
+    </script>
+ 
+</head>
+<body style="background-color: black; color: #f0f8ff;">
+<!--   
+    <input 
+    type="text"
+    placeholder="Digite seu nome"
+    id="nome_usuario"
+    class="campo_texto"
+    name="nome" > -->
+
+    <input 
+        type="text"
+        placeholder="digite um caracter" 
+        onkeyup="distribuiChar()"
+        id="entrada"/>
+    <hr/>
+    <span>Letras:</span>
+    <input  type="text" disabled="disabled" id="onletras"/>
+
+    <span>Numeros:</span>
+    <input type="text" disabled="disabled" id="onnumeros" />
+
+
+
+</body>
+</html>
